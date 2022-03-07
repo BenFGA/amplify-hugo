@@ -2,6 +2,9 @@ FROM ubuntu:latest
 
 ENV VERSION_HUGO=0.93.2
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC 
+
 RUN apt-get update && apt-get install -y curl git openssl nodejs
 
 RUN curl -OL https://github.com/gohugoio/hugo/releases/download/v${VERSION_HUGO}/hugo_extended_${VERSION_HUGO}_Linux-64bit.tar.gz && \
